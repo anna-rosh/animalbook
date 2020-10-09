@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxPromise from "redux-promise";
 import reducer from "./reducers";
+import App from "./App";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -12,13 +13,7 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(reduxProm
 
 ReactDOM.render(
     <Provider store={store}>
-        <HelloWorld />
+        <App />
     </Provider>,
     document.querySelector('main')
 );
-
-function HelloWorld() {
-    return (
-        <div>Hello, World!</div>
-    );
-}
