@@ -1,30 +1,35 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { receiveAllAnimals } from './actions';
+import { receiveAllAnimals, showClickedAnimal } from './actions';
 import { Link } from 'react-router-dom';
+import AnimalCard from './AnimalCard';
 
 export default function Cards() {
-        const dispatch = useDispatch();
-        const allAnimals = useSelector((state) => state && state.allAnimals);
+    const dispatch = useDispatch();
+    const allAnimals = useSelector((state) => state && state.allAnimals);
+    const animalCardIsVisible = useSelector((state) => state && state.animalCardIsVisible);
 
-        useEffect(() => {
-            console.log('Cards component mounted!');
-            dispatch(receiveAllAnimals());
-        }, []);
+    useEffect(() => {
+        console.log('Cards component mounted!');
+        dispatch(receiveAllAnimals());
+    }, []);
 
-        if (!allAnimals) {
-            return "Loading";
-        }
+    if (!allAnimals) {
+        return "Loading";
+    }
 
-        return (
-            <>
-                {allAnimals.map((animal) => {
-                    return (
-                        <Link to={`/card/${animal.id}`} className="card" key={animal.id} >
-                            <img className="animal-img" src={animal.img} />
-                        </Link>
-                    );
-                })}
-            </>
-        );
+    return (
+        <div className="cards-container">
+            {allAnimals.map((animal) => {
+                return (
+                    <div className="card" key={animal.id} onClick={() => dispatch(showClickedAnimal(animal.id))}>
+                        <div className="cards-comp-img-container">
+                            <img className="animal-img" src={animal.img} /> 
+                        </div> 
+                    </div>
+                );
+            })}
+            {animalCardIsVisible && <AnimalCard />}
+        </div>
+    );
 }
