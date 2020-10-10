@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import Cards from './Cards';
+import AnimalCard from './AnimalCard';
 
 export default function App() {
 
@@ -12,7 +13,7 @@ export default function App() {
     // }
 
 
-    return(
+    return (
         <BrowserRouter>
             {/* <h1>a cat is here!</h1>
             <button onClick={playAudio}>play audio</button>
@@ -21,8 +22,14 @@ export default function App() {
             </audio> */}
             <>
                 <p>here is header from the app-component</p>
-                <Route exact path="/" render={() => <Home />}/>
-                <Route path ="/cards" render={() => <Cards />} />
+                <Route exact path="/" render={() => <Home />} />
+                <Route exact path="/cards" render={() => <Cards />} />
+                <Route
+                    path="/card/:id"
+                    render={() => (
+                        <AnimalCard />
+                    )}
+                />
             </>
         </BrowserRouter>
     );

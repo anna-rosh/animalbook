@@ -47,16 +47,24 @@ app.use(express.static("./public"));
 app.get('/animals', async (req, res) => {
     try {
         const { rows } = await db.getAllAnimals();
-        console.log('ROWS: ', rows);
+        // console.log('ROWS: ', rows);
         res.json(rows);
 
     } catch (err) {
         console.log('err in getAllAnimals: ', err);
     }
-
 });
 
+app.get("/animal-info/:id", async (req, res) => {
+    try {
+        const { rows } = await db.getAnimalById(req.params.id);
+        // console.log('ROWS FOR ONE ANIMAL: ', rows);
+        res.json(rows[0]);
 
+    } catch (err) {
+        console.log('err in getAnimalById');
+    }
+});
 
 
 

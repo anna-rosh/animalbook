@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { receiveAllAnimals } from './actions';
+import { Link } from 'react-router-dom';
 
 export default function Cards() {
         const dispatch = useDispatch();
@@ -19,9 +20,9 @@ export default function Cards() {
             <>
                 {allAnimals.map((animal) => {
                     return (
-                        <div className="card" key={animal.id}>
+                        <Link to={`/card/${animal.id}`} className="card" key={animal.id} >
                             <img className="animal-img" src={animal.img} />
-                        </div>
+                        </Link>
                     );
                 })}
             </>

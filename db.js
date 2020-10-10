@@ -10,3 +10,11 @@ const db = spicedPg(
 module.exports.getAllAnimals = () => {
     return db.query(`SELECT * FROM animals ORDER BY id ASC`);
 };
+
+module.exports.getAnimalById = (animalId) => {
+    return db.query(
+        `SELECT * FROM animals
+        WHERE id = $1`,
+        [animalId]
+    );
+};

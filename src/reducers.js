@@ -6,11 +6,12 @@ export default function(state = {}, action) {
         });
     }
     
-    
-    
-    
-    
-    
+    if (action.type === "SHOW_CLICKED_ANIMAL") {
+        state = {
+            ...state,
+            clickedAnimal: action.clickedAnimal,
+        };
+    }
     
     
     
