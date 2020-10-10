@@ -1,0 +1,18 @@
+
+/* LEARNING CARDS ******************** LEARNING CARDS *********************** LEARNING CARDS */
+.card {
+    width: 200px;
+    height: 200px;
+    border: 1px solid dimgrey;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.animal-img {
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}

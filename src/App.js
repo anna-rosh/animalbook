@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import Cards from './Cards';
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
             <>
                 <p>here is header from the app-component</p>
                 <Route exact path="/" render={() => <Home />}/>
+                <Route path ="/cards" render={() => <Cards />} />
             </>
         </BrowserRouter>
     );

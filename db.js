@@ -8,5 +8,5 @@ const db = spicedPg(
 ////////////////////////////// Q U E R I E S ////////////////////////
 
 module.exports.getAllAnimals = () => {
-    return db.query(`SELECT * FROM animals`);
+    return db.query(`SELECT * FROM animals ORDER BY id ASC`);
 };
