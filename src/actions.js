@@ -23,10 +23,18 @@ export async function showClickedAnimal(id) {
 }
 
 export function hideAnimalCard() {
-    console.log('HI THERE YOU ARE GOING TO HIDE THE COMPONENT!');
-
     return {
         type: "HIDE_ANIMAL_CARD",
         animalCardIsVisible: false
+    };
+}
+
+export async function getQuizQuestion() {
+    const { data } = await axios.get('/question');
+    console.log("the question in actions", data);
+
+    return {
+        type: 'GET_QUIZ_QUESTION',
+        quizQuestion: data
     };
 }

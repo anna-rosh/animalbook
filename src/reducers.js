@@ -22,6 +22,14 @@ export default function(state = {}, action) {
         };
     }
 
-
+    //////////////// QUIZ /////////////////////// QUIZ /////////////
+    if (action.type === "GET_QUIZ_QUESTION") {
+        state = {
+            ...state,
+            quizQuestion: action.quizQuestion
+        };
+    }
+    
+    
     return state;
 }

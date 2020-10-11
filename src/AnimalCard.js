@@ -1,21 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { showClickedAnimal, hideAnimalCard } from './actions';
-import { XCircle, ChevronLeft, ChevronRight } from 'react-feather'; 
+import { XCircle, ChevronLeft, ChevronRight } from 'react-feather';
+import { playAudio } from './play'; 
 
 export default function AnimalCard() {
     const dispatch = useDispatch();
     const clickedAnimal = useSelector((state) => state && state.clickedAnimal);
     const allAnimals = useSelector((state) => state && state.allAnimals);
-
-    const playAudio = async (elementClass) => {
-        let audioEl = document.getElementsByClassName(elementClass)[0];
-        audioEl.pause();
-        audioEl.load();
-        audioEl.play();
-        // console.log('the button was clicked', elementClass);
-    };
-
+    
     
     if (!clickedAnimal) {
         return 'Loading';
@@ -33,11 +26,11 @@ export default function AnimalCard() {
                 <img className='animal-img' src={clickedAnimal.img} alt={clickedAnimal.animal} />
             </div>
             <div className="audio-btn-container">
-                <div className="audio-btn" onClick={() => playAudio("term-audio")}>play term</div>
+                <div className="audio-btn" onClick={() => playAudio("term-audio", 0)}>play term</div>
                 <audio className="term-audio">
                     <source src={clickedAnimal.term_read}></source>
                 </audio>
-                <div className="audio-btn" onClick={() => playAudio("sound-audio")}>play sound</div>
+                <div className="audio-btn" onClick={() => playAudio("sound-audio", 0)}>play sound</div>
                 <audio className="sound-audio">
                     <source src={clickedAnimal.sound}></source>
                 </audio>
