@@ -4,6 +4,7 @@ const compression = require('compression');
 const cookieSession = require("cookie-session");
 const csurf = require("csurf");
 const db = require("./db");
+const alg = require("./alg"); 
 
 app.use(compression());
 
@@ -64,6 +65,41 @@ app.get("/animal-info/:id", async (req, res) => {
     } catch (err) {
         console.log('err in getAnimalById');
     }
+});
+
+
+app.get('/question', async (req, res) => {
+    let question, audios;
+
+    try {
+        const { rows } = await db.getRandomAnimal();
+        question = rows[0];
+
+    } catch (err) {
+        console.log('err in getRandomAnimal: ', err);
+    }
+
+    try {
+        const { rows:resp } = await db.getRandomAudios(question.id);
+        audios = resp;
+
+    } catch (err) {
+        console.log('err im getRandomAudios: ', err);
+    }
+
+    // create an arr only with audio files 
+    const questions = [];
+    audios.map(audio => questions.push(audio.term_read));
+    questions.push(question.term_read);
+
+    const shuffledQuestions = alg.shuffleArr(questions);
+
+    res.json({ 
+        question, 
+        answers: shuffledQuestions,
+        correctAnswer: question.term_read
+    });
+
 });
 
 

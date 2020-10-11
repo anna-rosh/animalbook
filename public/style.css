@@ -61,6 +61,15 @@
     position: absolute;
     top: 3%;
     right: 3%;
+    /* color: blue;
+    stroke-width: 1px;
+    width: 15px;
+    height: 15px; */
+}
+
+.chevron-placeholder {
+    width: 70px;
+    height: 70px;
 }
 
 .card-img-container {

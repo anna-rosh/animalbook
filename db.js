@@ -18,3 +18,21 @@ module.exports.getAnimalById = (animalId) => {
         [animalId]
     );
 };
+
+module.exports.getRandomAnimal = () => {
+    return db.query(
+        `SELECT id, img, term_read FROM animals
+        ORDER BY RANDOM()
+        LIMIT 1`
+    );
+};
+
+module.exports.getRandomAudios = (animalId) => {
+    return db.query(
+        `SELECT term_read FROM animals
+        WHERE id <> $1
+        ORDER BY RANDOM()
+        LIMIT 2`,
+        [animalId]
+    );
+};
