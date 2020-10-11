@@ -38,3 +38,18 @@ export async function getQuizQuestion() {
         quizQuestion: data
     };
 }
+
+export function updateQuestionCount(currVal) {
+    if (currVal < 5) {
+        return {
+            type: "UPDATE_QUESTION_COUNT",
+            questionCount: currVal += 1
+        };
+    } else {
+        return {
+            type: "UPDATE_QUESTION_COUNT",
+            questionCount: 0,
+        };
+    }
+
+}

@@ -1,22 +1,30 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getQuizQuestion } from './actions';
+import { getQuizQuestion, updateQuestionCount } from './actions';
 import { playAudio } from './play';
 import { ThumbsUp } from 'react-feather';
 
 export default function Question() {
     const dispatch = useDispatch();
     const quizQuestion = useSelector((state) => state && state.quizQuestion);
+    const questionCount = useSelector((state) => state && state.questionCount);
 
     useEffect(() => {
         console.log('Question component mounted!');
         dispatch(getQuizQuestion());
+
+        dispatch(updateQuestionCount(0));
 
     }, []);
 
     const checkForViktory = (clickedAnswer) => {
         if (clickedAnswer === quizQuestion.correctAnswer) {
             console.log("IT IS THE RIGHT ANSWER!");
+
+            let currVal = questionCount;
+            dispatch(getQuizQuestion());
+            dispatch(updateQuestionCount(currVal));
+            
         } else {
             console.log("UNFRTUNATELY, IT'S A WRONG ANSWER");
         }

@@ -1,4 +1,3 @@
-
 export default function(state = {}, action) {
 
     if (action.type === "RECEIVE_ALL_ANIMALS") {
@@ -27,6 +26,13 @@ export default function(state = {}, action) {
         state = {
             ...state,
             quizQuestion: action.quizQuestion
+        };
+    }
+
+    if (action.type === "UPDATE_QUESTION_COUNT") {
+        state = {
+            ...state,
+            questionCount: action.questionCount
         };
     }
     
