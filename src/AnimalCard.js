@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { showClickedAnimal, hideAnimalCard } from './actions';
-import { XCircle, ChevronLeft, ChevronRight } from 'react-feather';
+import { XCircle, ChevronLeft, ChevronRight, MessageCircle } from 'react-feather';
 import { playAudio } from './play'; 
 
 export default function AnimalCard() {
@@ -26,11 +26,17 @@ export default function AnimalCard() {
                 <img className='animal-img' src={clickedAnimal.img} alt={clickedAnimal.animal} />
             </div>
             <div className="audio-btn-container">
-                <div className="audio-btn" onClick={() => playAudio("term-audio", 0)}>play term</div>
+                <div className="audio-btn" onClick={() => playAudio("term-audio", 0)}>
+                    <MessageCircle className="message-circle mirrored" />
+                    <img className="audio-btn-img" src="/img/person-speaks.png" />
+                </div>
                 <audio className="term-audio">
                     <source src={clickedAnimal.term_read}></source>
                 </audio>
-                <div className="audio-btn" onClick={() => playAudio("sound-audio", 0)}>play sound</div>
+                <div className="audio-btn" onClick={() => playAudio("sound-audio", 0)}>
+                    <MessageCircle className="message-circle " />
+                    <img className="audio-btn-img" src={clickedAnimal.img} />
+                </div>
                 <audio className="sound-audio">
                     <source src={clickedAnimal.sound}></source>
                 </audio>

@@ -5,13 +5,6 @@ import { useSelector } from 'react-redux';
 export default function ScoreTracker() {
     const userScore = useSelector((state) => state && state.userScore);
 
-    // useEffect(() => {
-    //     const suns = document.getElementsByClassName('sun');
-    //     console.log('suns: ', suns);
-
-    // }, []);
- 
-
     return (
         <div className="score-tracker-container">
             <div className="score-slot">
