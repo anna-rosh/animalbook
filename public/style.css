@@ -48,6 +48,7 @@ main {
 
 /* INDIVIDUAL CARD ********************* INDIVIDUAL CARD ***************** INDIVIDUAL CARD */
 .animal-card-container {
+    background-color: rgb(183, 160, 216);
     padding: 0 3%;
     width: 100%;
     height: 100vh;
@@ -55,7 +56,6 @@ main {
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgb(179, 157, 209);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,7 +146,7 @@ main {
 .score-tracker-container {
     display: flex;
     align-self: flex-end;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .score-slot {
@@ -217,7 +217,6 @@ main {
     width: 100px;
     height: 100px;
     position: relative;
-    border: 2px solid rgb(205, 187, 230);
     background-color: rgb(205, 187, 230);
     border-radius: 3%;
     display: flex;
@@ -227,9 +226,9 @@ main {
     cursor: pointer;
 }
 
-.green-border {
-    transition: border 2s;
-    border: 3px solid green;
+.green-bg {
+    transition: background-color 2s;
+    background-color: green;
 }
 
 .audio-btn-quiz:hover {
@@ -251,4 +250,95 @@ main {
 .thumbs-up:active,
 .thumbs-up:focus {
     color:rgb(253, 253, 150);
+}
+
+/* QUIZ END ************ QUIZ END ************** QUIZ END ************* QUIZ END */
+.quiz-end-component-container {
+    padding: 0 3%;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(183, 160, 216);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-end-component-container .score-tracker-container {
+    align-self: center;
+    margin-bottom: 100px;
+}
+
+.quiz-end-component-container .score-slot {
+    width: 150px;
+    height: 150px;
+}
+
+.quiz-end-component-container .score-slot.one {
+    animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+.quiz-end-component-container .score-slot.two {
+    animation: 1s ease-out 0.3s 1 slideInFromRight;
+}
+
+.quiz-end-component-container .score-slot.three {
+    animation: 1s ease-out 0.6s 1 slideInFromRight;
+}
+
+.quiz-end-component-container .score-slot.four {
+    animation: 1s ease-out 0.9s 1 slideInFromRight;
+}
+
+.quiz-end-component-container .score-slot.five {
+    animation: 1s ease-out 1.2s 1 slideInFromRight;
+}
+
+.quiz-end-component-container .sun,
+.quiz-end-component-container .cloud {
+    width: 140px;
+    height: 140px;
+}
+
+.quiz-end-component-container .nav-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.quiz-end-component-container .nav-container .nav-icon {
+    width: 100px;
+    height: 100px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.quiz-end-component-container .nav-container .nav-icon:hover,
+.quiz-end-component-container .nav-container .nav-icon:focus {
+    outline: none;
+    transition: opacity 0.2s;
+    opacity: 0.5;
+}
+
+.quiz-end-component-container .nav-container .nav-icon:active {
+    color:rgb(253, 253, 150);
+}
+
+@keyframes fadein {
+  0% { opacity: 0 }
+  100%   { opacity: 1}
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateY(-90%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

@@ -63,3 +63,13 @@ export function updateUserScore(result) {
     };
     
 }
+
+export function emptyScoreTracker() {
+    // it is important to set question count to one, bc the conponent won't mount again
+    // and we're getting the number of the first question when the component mounts
+    return {
+        type: "EMPTY_SCORE_TRACKER",
+        userScore: [],
+        questionCount: 1
+    };
+}

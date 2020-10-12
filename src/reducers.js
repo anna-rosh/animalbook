@@ -45,7 +45,15 @@ export default function(state = {}, action) {
             userScore: state.userScore ? [...state.userScore, ...action.userScore] : action.userScore
         };
     }
+
+    if (action.type === "EMPTY_SCORE_TRACKER") {
+        state = {
+            ...state,
+            userScore: action.userScore,
+            questionCount: action.questionCount
+        };
+    }
     
-    
+
     return state;
 }

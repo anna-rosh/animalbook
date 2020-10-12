@@ -12,7 +12,6 @@ export default function Question() {
     useEffect(() => {
         console.log('Question component mounted!');
         dispatch(getQuizQuestion());
-
         dispatch(updateQuestionCount(0));
 
     }, []);
@@ -21,28 +20,14 @@ export default function Question() {
         if (clickedAnswer === quizQuestion.correctAnswer) {
             dispatch(updateUserScore(1));
             playRightAnswer(quizQuestion.correctAnswer, 'term-audio');
-            addScoreAndShowNextQuestion();   
+            ShowNextQuestion(dispatch, questionCount);   
         } else {
             dispatch(updateUserScore(2));
             playRightAnswer(quizQuestion.correctAnswer, "term-audio");
-            addScoreAndShowNextQuestion();
+            ShowNextQuestion(dispatch, questionCount);
         }
     };
 
-    const addScoreAndShowNextQuestion = () => {
-        setTimeout(() => {
-            let currVal = questionCount;
-            dispatch(updateQuestionCount(currVal));
-            dispatch(getQuizQuestion());
-
-            let btns = document.getElementsByClassName("audio-btn-quiz");
-
-            for (let i = 0; i < btns.length; i++) {
-                btns[i].classList.remove("green-border");
-            }
-
-        }, 2500);
-    };
 
     if (!quizQuestion) {
         return 'Loading';
@@ -73,22 +58,37 @@ export default function Question() {
     );
 }
 
-const playRightAnswer = (correctAnswer, elementClass) => {
-    const allAudios = document.getElementsByClassName(elementClass);
+const ShowNextQuestion = (dispatch, questionCount) => {
+    setTimeout(() => {
+        let currVal = questionCount;
+        dispatch(updateQuestionCount(currVal));
+        dispatch(getQuizQuestion());
+        let btns = document.getElementsByClassName("audio-btn-quiz");
 
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("green-bg");
+        }
+    }, 2500);
+};
+
+const playRightAnswer = (correctAnswer, elementClass) => {
+    // get a collection of audio elements
+    const allAudios = document.getElementsByClassName(elementClass);
+    // make the collection to an array to me able to get the index of the audio
+    // with the right answer
     let allAudiosArr = [];
     let rightAudio;
-    // allAudios.filter(audio => audio.innerHtml.includes(quizQuestion.correctAnswer));
+    // loop over the elemet arr to find the element containing the right answer
     for (let i = 0; i < allAudios.length; i++) {
         if (allAudios[i].innerHTML.includes(correctAnswer)) {
             rightAudio = allAudios[i];
         }
-
         allAudiosArr.push(allAudios[i]);
     }
-
+    // find out the index of the element with the right audio
     let rightAudioIndex = allAudiosArr.indexOf(rightAudio);
-    document.getElementsByClassName("audio-btn-quiz")[rightAudioIndex].classList.add("green-border");
-    
+    // display that this answer is correct
+    document.getElementsByClassName("audio-btn-quiz")[rightAudioIndex].classList.add("green-bg");
+    // play the correct audio
     playAudio(elementClass, rightAudioIndex);
 };
