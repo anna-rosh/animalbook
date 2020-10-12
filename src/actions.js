@@ -29,9 +29,11 @@ export function hideAnimalCard() {
     };
 }
 
+////////// Q U I Z /////////////////// Q U I Z //////////////////// Q U I Z ///////
+
 export async function getQuizQuestion() {
     const { data } = await axios.get('/question');
-    console.log("the question in actions", data);
+    // console.log("the question in actions", data);
 
     return {
         type: 'GET_QUIZ_QUESTION',
@@ -52,4 +54,12 @@ export function updateQuestionCount(currVal) {
         };
     }
 
+}
+
+export function updateUserScore(result) {
+    return {
+        type: "UPDATE_USER_SCORE",
+        userScore: [result]
+    };
+    
 }

@@ -36,6 +36,16 @@ export default function(state = {}, action) {
         };
     }
     
+
+    if (action.type === "UPDATE_USER_SCORE") {
+        console.log('hello!');
+
+        state = {
+            ...state,
+            userScore: state.userScore ? [...state.userScore, ...action.userScore] : action.userScore
+        };
+    }
+    
     
     return state;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getQuizQuestion, updateQuestionCount } from './actions';
+import { getQuizQuestion, updateQuestionCount, updateUserScore } from './actions';
 import { playAudio } from './play';
 import { ThumbsUp } from 'react-feather';
 
@@ -21,12 +21,20 @@ export default function Question() {
         if (clickedAnswer === quizQuestion.correctAnswer) {
             console.log("IT IS THE RIGHT ANSWER!");
 
+            dispatch(updateUserScore(1));
+
             let currVal = questionCount;
-            dispatch(getQuizQuestion());
             dispatch(updateQuestionCount(currVal));
+            dispatch(getQuizQuestion()); 
             
         } else {
             console.log("UNFRTUNATELY, IT'S A WRONG ANSWER");
+
+            dispatch(updateUserScore(2));
+
+            let currVal = questionCount;
+            dispatch(updateQuestionCount(currVal));
+            dispatch(getQuizQuestion()); 
         }
     };
 
