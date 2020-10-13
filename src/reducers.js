@@ -67,7 +67,7 @@ export default function(state = {}, action) {
         state = {
             ...state,
             clickedImgId: action.clickedImgId,
-            imgCardOpen: action.imgCardOpen
+            clickedImgIndex: action.clickedImgIndex
         };
     }
 
@@ -75,10 +75,26 @@ export default function(state = {}, action) {
         state = {
             ...state,
             clickedSoundId: action.clickedSoundId,
-            soundCardOpen: action.soundCardOpen
+            clickedSoundIndex: action.clickedSoundIndex
         };
     }
-    
+
+    if (action.type === "CLOSE_IMG_CARD") {
+        state = {
+            ...state,
+            clickedImgId: action.clickedImgId,
+            clickedImgIndex: action.clickedImgIndex,
+        };
+    }
+
+    if (action.type === "CLOSE_SOUND_CARD") {
+        state = {
+            ...state,
+            clickedSoundId: action.clickedSoundId,
+            clickedSoundIndex: action.clickedSoundIndex,
+        };
+    }
+
 
     return state;
 }

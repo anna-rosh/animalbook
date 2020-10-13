@@ -370,9 +370,22 @@ main {
     height: 0;
     padding-top: 100%;
     position: relative;
-    border: 1px solid rgb(179, 157, 209);
+    border: 2px solid rgb(179, 157, 209);
     border-radius: 1%;
     cursor: pointer;
+}
+
+.memory-card .animal-img {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.dark-border {
+    transition: border-color 0.5s;
+    border-color: rgb(86, 14, 187); 
 }
 
 .memory-container .message-circle {

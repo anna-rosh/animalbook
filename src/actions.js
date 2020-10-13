@@ -86,22 +86,38 @@ export async function receiveCardsContent() {
     };
 }
 
-export function openImgCard(id) {
+export function openImgCard(id, index) {
     console.log('the following animal was clicked: ', id);
 
     return {
         type: "OPEN_IMG_CARD",
         clickedImgId: id,
-        imgCardOpen: true
+        clickedImgIndex: index
     };
 }
 
-export function openSoundCard(id) {
+export function openSoundCard(id, index) {
     console.log("the following sound was clicked: ", id);
 
     return {
         type: "OPEN_SOUND_CARD",
         clickedSoundId: id,
-        soundCardOpen: true
+        clickedSoundIndex: index
+    };
+}
+
+export function closeImgCard() {
+    return {
+        type: "CLOSE_IMG_CARD",
+        clickedImgId: null,
+        clickedImgIndex: null,
+    };
+}
+
+export function closeSoundCard() {
+    return {
+        type: "CLOSE_SOUND_CARD",
+        clickedSoundId: null,
+        clickedSoundIndex: null,
     };
 }
