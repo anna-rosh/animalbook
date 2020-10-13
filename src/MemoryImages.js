@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { receiveCardsContent, openImgCard, closeImgCard } from "./actions";
+import { receiveCardsContent, openImgCard, closeImgCard, countMatches } from "./actions";
 
 export default function MemoryImages() {
     const dispatch = useDispatch();
@@ -8,6 +8,7 @@ export default function MemoryImages() {
     const clickedImgId = useSelector((state) => state && state.clickedImgId);
     const clickedSoundId = useSelector((state) => state && state.clickedSoundId);
     const clickedImgIndex = useSelector((state) => state && state.clickedImgIndex);
+    const matches = useSelector((state) => state && state.matches);
 
     useEffect(() => {
         dispatch(receiveCardsContent());
@@ -35,6 +36,7 @@ export default function MemoryImages() {
                 clickedImg.style.visibility = "hidden";
 
                 dispatch(closeImgCard());
+                dispatch(countMatches());
 
             }, 2000);
 

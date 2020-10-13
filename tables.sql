@@ -22,3 +22,18 @@ VALUES ('rooster', '/img/rooster.png', '/names/hahn.mp3', '/sounds/rooster.mp3')
 
 INSERT INTO animals (animal, img, term_read, sound)
 VALUES ('sheep', '/img/sheep.png', '/names/schaf.mp3', '/sounds/sheep.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('bear', '/img/bear.png', '/names/baer.mp3', '/sounds/bear.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('elephant', '/img/elephant.png', '/names/elefant.mp3', '/sounds/elephant.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('frog', '/img/frog.png', '/names/frosch.mp3', '/sounds/frog.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('horse', '/img/horse.png', '/names/pferd.mp3', '/sounds/horse.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('pig', '/img/pig.png', '/names/schwein.mp3', '/sounds/pig.mp3');

@@ -95,6 +95,13 @@ export default function(state = {}, action) {
         };
     }
 
+    if (action.type === "COUNT_MATCHES") {
+        state = {
+            ...state,
+            matches: state.matches ? [...state.matches, ...action.matches] : action.matches
+        };
+    }
+
 
     return state;
 }

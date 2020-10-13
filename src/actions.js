@@ -121,3 +121,10 @@ export function closeSoundCard() {
         clickedSoundIndex: null,
     };
 }
+
+export function countMatches() {
+    return {
+        type: "COUNT_MATCHES",
+        matches: [true]
+    };
+}

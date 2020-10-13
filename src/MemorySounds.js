@@ -11,9 +11,11 @@ export default function MemorySounds() {
     const clickedSoundId = useSelector((state) => state && state.clickedSoundId);
     const clickedSoundIndex = useSelector((state) => state && state.clickedSoundIndex);
 
+
     useEffect(() => {
         dispatch(receiveCardsContent());
     }, []);
+
 
     const handleClick = (elementClass, index, soundId) => {
         // if one card is already open, prevent users from clicking other cards
@@ -54,7 +56,7 @@ export default function MemorySounds() {
         } else {
             return;
         }
-    };
+    }; // closes checkForMatch
 
     checkForMatch();
 
