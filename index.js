@@ -67,7 +67,7 @@ app.get("/animal-info/:id", async (req, res) => {
     }
 });
 
-
+// send information with a quiz question and answers
 app.get('/question', async (req, res) => {
     let question, audios;
 
@@ -102,7 +102,41 @@ app.get('/question', async (req, res) => {
 
 });
 
+// send two arr ob objects with audios and imgs for the memory game
+app.get('/memory-cards', async (req, res) => {
+    let randomAnimals;
 
+    try {
+        const { rows } = await db.getFourRandomAnimals();
+        // console.log('ROWS in memory cards: ', rows);
+        randomAnimals = rows;
+
+    } catch(err) {
+        console.log('err in getFourRandomAnimals: ', err);
+    }
+
+    let imgs = [];
+    let audios = [];
+    // create two separate arr of images and audios
+    randomAnimals.forEach(element => {
+        const { id, img } = element;
+        let imgObj = { id, img };
+        imgs.push(imgObj);
+
+        const { term_read } = element;
+        let audioObj = { id, term_read};
+        audios.push(audioObj);
+    });
+
+    const shuffledImgs = alg.shuffleArr(imgs);
+    const shuffledAudios = alg.shuffleArr(audios);
+
+    res.json({
+        imgs: shuffledImgs,
+        audios: shuffledAudios
+    });
+
+});
 
 
 

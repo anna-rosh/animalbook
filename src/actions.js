@@ -73,3 +73,35 @@ export function emptyScoreTracker() {
         questionCount: 1
     };
 }
+
+////////////// MEMORY ///////////////////// MEMORY ////////////////// MEMORY ///////////////
+
+export async function receiveCardsContent() {
+    const { data } = await axios.get('/memory-cards');
+
+    return {
+        type: "RECEIVE_CARDS_CONTENT",
+        imgCards: data.imgs,
+        soundCards: data.audios
+    };
+}
+
+export function openImgCard(id) {
+    console.log('the following animal was clicked: ', id);
+
+    return {
+        type: "OPEN_IMG_CARD",
+        clickedImgId: id,
+        imgCardOpen: true
+    };
+}
+
+export function openSoundCard(id) {
+    console.log("the following sound was clicked: ", id);
+
+    return {
+        type: "OPEN_SOUND_CARD",
+        clickedSoundId: id,
+        soundCardOpen: true
+    };
+}

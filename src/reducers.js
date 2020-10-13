@@ -53,6 +53,31 @@ export default function(state = {}, action) {
             questionCount: action.questionCount
         };
     }
+
+    /////////////////// MEMORY /////////////////////// MEMORY /////////////////
+    if (action.type === "RECEIVE_CARDS_CONTENT") {
+        state = {
+            ...state,
+            imgCards: action.imgCards,
+            soundCards: action.soundCards
+        };
+    }
+
+    if (action.type === "OPEN_IMG_CARD") {
+        state = {
+            ...state,
+            clickedImgId: action.clickedImgId,
+            imgCardOpen: action.imgCardOpen
+        };
+    }
+
+    if (action.type === "OPEN_SOUND_CARD") {
+        state = {
+            ...state,
+            clickedSoundId: action.clickedSoundId,
+            soundCardOpen: action.soundCardOpen
+        };
+    }
     
 
     return state;

@@ -19,6 +19,7 @@ module.exports.getAnimalById = (animalId) => {
     );
 };
 
+// used in quiz
 module.exports.getRandomAnimal = () => {
     return db.query(
         `SELECT id, img, term_read FROM animals
@@ -27,6 +28,7 @@ module.exports.getRandomAnimal = () => {
     );
 };
 
+// used in quiz
 module.exports.getRandomAudios = (animalId) => {
     return db.query(
         `SELECT term_read FROM animals
@@ -34,5 +36,15 @@ module.exports.getRandomAudios = (animalId) => {
         ORDER BY RANDOM()
         LIMIT 2`,
         [animalId]
+    );
+};
+
+// used in memory
+module.exports.getFourRandomAnimals = () => {
+    return db.query(
+        `SELECT id, img, term_read
+        FROM animals
+        ORDER BY RANDOM()
+        LIMIT 4`
     );
 };

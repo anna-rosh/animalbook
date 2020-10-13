@@ -6,6 +6,7 @@
 
 main {
     background-color: rgb(183, 160, 216);
+    height: 100vh;
 }
 
 .app-container {
@@ -30,7 +31,7 @@ main {
     border-radius: 1%;
 }
 
-.cards-comp-img-container {
+.cards-img-container {
     position: absolute;
     top: 0;
     background-color: rgb(179, 157, 209);
@@ -279,23 +280,23 @@ main {
 }
 
 .quiz-end-component-container .score-slot.one {
-    animation: 1s ease-out 0s 1 slideInFromRight;
+    animation: 1s ease-out 0s 1 slideInFromTop;
 }
 
 .quiz-end-component-container .score-slot.two {
-    animation: 1s ease-out 0.3s 1 slideInFromRight;
+    animation: 1s ease-out 0.3s 1 slideInFromTop;
 }
 
 .quiz-end-component-container .score-slot.three {
-    animation: 1s ease-out 0.6s 1 slideInFromRight;
+    animation: 1s ease-out 0.6s 1 slideInFromTop;
 }
 
 .quiz-end-component-container .score-slot.four {
-    animation: 1s ease-out 0.9s 1 slideInFromRight;
+    animation: 1s ease-out 0.9s 1 slideInFromTop;
 }
 
 .quiz-end-component-container .score-slot.five {
-    animation: 1s ease-out 1.2s 1 slideInFromRight;
+    animation: 1s ease-out 1.2s 1 slideInFromTop;
 }
 
 .quiz-end-component-container .sun,
@@ -308,6 +309,7 @@ main {
     display: flex;
     justify-content: space-between;
     width: 300px;
+    /* animation: 1.5s ease-out 1.3s 1 fadein; */
 }
 
 .quiz-end-component-container .nav-container .nav-icon {
@@ -334,11 +336,50 @@ main {
   100%   { opacity: 1}
 }
 
-@keyframes slideInFromRight {
+@keyframes slideInFromTop {
     0% {
         transform: translateY(-90%);
     }
     100% {
         transform: translateY(0);
     }
+}
+
+/* MEMORY ********************** MEMORY ****************** MEMORY ***************** */
+/* memory component ************************** memory component ***************** memory component */
+.memory-container {
+    display: flex;
+    align-items: center;
+    padding: 0 1%;
+}
+
+/* memory sounds & images ************************ memory sounds & images ********************** memory sounds & images */
+.memory-cards-container {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    gap: 15px;
+}
+
+.memory-cards-container:first-child {
+    margin-right: 30px;
+}
+
+.memory-card {
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    border: 1px solid rgb(179, 157, 209);
+    border-radius: 1%;
+    cursor: pointer;
+}
+
+.memory-container .message-circle {
+    width: 50px;
+    height: 50px;
+}
+
+.cards-img-container.sound-btn {
+    align-items: flex-end;
 }

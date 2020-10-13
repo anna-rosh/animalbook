@@ -7,6 +7,7 @@ export default function Home() {
         <>
             <Link to="/cards">CARDS</Link>
             <Link to="/quiz">QUIZ</Link>
+            <Link to="/memory">MEMORY</Link>
         </>
     );
 

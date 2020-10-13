@@ -23,7 +23,7 @@ export default function Cards() {
             {allAnimals.map((animal) => {
                 return (
                     <div className="card" key={animal.id} onClick={() => dispatch(showClickedAnimal(animal.id))}>
-                        <div className="cards-comp-img-container">
+                        <div className="cards-img-container">
                             <img className="animal-img" src={animal.img} /> 
                         </div> 
                     </div>
