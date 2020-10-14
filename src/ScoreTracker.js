@@ -7,27 +7,27 @@ export default function ScoreTracker() {
 
     return (
         <div className="score-tracker-container">
-            <div className="score-slot one">
+            <div className="score-slot">
                 <Sun className={userScore && userScore[0] === 1 ? "sun" : "score"} />
                 <Cloud className={userScore && userScore[0] === 2 ? "cloud" : "score"} />
             </div>
 
-            <div className="score-slot two">
+            <div className="score-slot">
                 <Sun className={userScore && userScore[1] === 1 ? "sun" : "score"} />
                 <Cloud className={userScore && userScore[1] === 2 ? "cloud" : "score"} />
             </div>
 
-            <div className="score-slot three">
+            <div className="score-slot">
                 <Sun className={userScore && userScore[2] === 1 ? "sun" : "score"} />
                 <Cloud className={userScore && userScore[2] === 2 ? "cloud" : "score"} />
             </div>
 
-            <div className="score-slot four">
+            <div className="score-slot">
                 <Sun className={userScore && userScore[3] === 1 ? "sun" : "score"} />
                 <Cloud className={userScore && userScore[3] === 2 ? "cloud" : "score"} />
             </div>
 
-            <div className="score-slot five">
+            <div className="score-slot">
                 <Sun className={userScore && userScore[4] === 1 ? "sun" : "score"} />
                 <Cloud className={userScore && userScore[4] === 2 ? "cloud" : "score"} />
             </div>

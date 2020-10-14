@@ -37,3 +37,9 @@ VALUES ('horse', '/img/horse.png', '/names/pferd.mp3', '/sounds/horse.mp3');
 
 INSERT INTO animals (animal, img, term_read, sound)
 VALUES ('pig', '/img/pig.png', '/names/schwein.mp3', '/sounds/pig.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('snake', '/img/snake.png', '/names/schlange.mp3', '/sounds/snake.mp3');
+
+INSERT INTO animals (animal, img, term_read, sound)
+VALUES ('owl', '/img/owl.png', '/names/eule.mp3', '/sounds/owl.mp3');

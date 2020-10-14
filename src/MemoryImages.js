@@ -21,6 +21,7 @@ export default function MemoryImages() {
 
         const clickedImg = document.getElementsByClassName("animal-img")[index];
         clickedImg.style.visibility = "visible";
+
         dispatch(openImgCard(imgId, index));
     };
 
@@ -45,6 +46,7 @@ export default function MemoryImages() {
             setTimeout(() => {
                 const clickedImg = document.getElementsByClassName("animal-img")[clickedImgIndex];
                 clickedImg.style.visibility = "hidden";
+
                 dispatch(closeImgCard());
 
             }, 2000);  

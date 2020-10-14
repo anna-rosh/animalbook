@@ -8,19 +8,19 @@ export default function MatchTracket() {
 
     return (
         <div className="score-tracker-container">
-            <div className="score-slot one">
+            <div className="score-slot">
                 <Gift className={matches && matches[0] ? "gift" : "score"} />
             </div>
 
-            <div className="score-slot two">
+            <div className="score-slot">
                 <Gift className={matches && matches[1] ? "gift" : "score"} />
             </div>
 
-            <div className="score-slot three">
+            <div className="score-slot">
                 <Gift className={matches && matches[2] ? "gift" : "score"} />
             </div>
 
-            <div className="score-slot four">
+            <div className="score-slot">
                 <Gift className={matches && matches[3] ? "gift" : "score"} />
             </div>
         </div>

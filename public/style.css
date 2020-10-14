@@ -71,7 +71,7 @@ main {
 }
 
 .activity-container {
-    color: rgb(205, 188, 228);
+    color: rgb(211, 199, 228);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -207,7 +207,7 @@ main {
     justify-content: center;
     align-items: flex-end;
     cursor: pointer;
-    transition: transform 0.5s;
+    transition: transform 0.5s, background-color 0.5s;
 }
 
 .audio-btn:first-child {
@@ -216,6 +216,7 @@ main {
 
 .audio-btn:hover {
     transform: scale(1.1);
+    background-color: rgb(197, 172, 231);
 }
 
 .message-circle {
@@ -243,7 +244,7 @@ main {
 
 /* QUIZ ********************** QUIZ ************** */
 .quiz-component-container {
-    height: 98vh;
+    height: 87vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,7 +252,7 @@ main {
 }
 
 
-/* POINT TRACKER ***************************** POINT TRACKER *************************** POINT TRACKER */
+/*  SCORE TRACKER ***************************** SCORE TRACKER *************************** SCORE TRACKER */
 .score-tracker-container {
     display: flex;
     align-self: flex-end;
@@ -278,6 +279,8 @@ main {
     width: 40px;
     height: 40px;
     display: block;
+    z-index: 1;
+    animation: 1s ease-out fadein, 1s ease-out slide;
 }
 
 .sun {
@@ -333,6 +336,7 @@ main {
     align-items: flex-end;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: background-color 0.5s;
 }
 
 .green-bg {
@@ -341,7 +345,6 @@ main {
 }
 
 .audio-btn-quiz:hover {
-    transition: background-color 0.5s;
     background-color: rgb(197, 172, 231);
 }
 
@@ -349,11 +352,11 @@ main {
     width: 40px;
     height: 40px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.thumbs-up:hover {
-    transition: opacity 0.2s;
-    opacity: 0.5;
+.thumbs-up:hover { 
+    transform: scale(1.2);
 }
 
 .thumbs-up:active,
@@ -385,39 +388,26 @@ main {
 .game-end-component-container .score-slot {
     width: 150px;
     height: 150px;
-}
-
-.game-end-component-container .score-slot.one {
-    animation: 1s ease-out 0s 1 slideInFromTop;
-}
-
-.game-end-component-container .score-slot.two {
-    animation: 1s ease-out 0.3s 1 slideInFromTop;
-}
-
-.game-end-component-container .score-slot.three {
-    animation: 1s ease-out 0.6s 1 slideInFromTop;
-}
-
-.game-end-component-container .score-slot.four {
-    animation: 1s ease-out 0.9s 1 slideInFromTop;
-}
-
-.game-end-component-container .score-slot.five {
-    animation: 1s ease-out 1.2s 1 slideInFromTop;
+    border: 1px solid rgb(183, 160, 216);
 }
 
 .game-end-component-container .sun,
-.game-end-component-container .cloud {
+.game-end-component-container .cloud,
+.game-end-component-container .gift {
     width: 140px;
     height: 140px;
 }
+
+.game-end-component-container .gift {
+    animation: 1s ease-out fadein, 1s ease-out slide;
+    animation-delay: 1s;
+}
+
 
 .game-end-component-container .nav-container {
     display: flex;
     justify-content: space-between;
     width: 300px;
-    /* animation: 1.5s ease-out 1.3s 1 fadein; */
 }
 
 .game-end-component-container .nav-container .nav-icon {
@@ -442,10 +432,10 @@ main {
 
 /* MEMORY ********************** MEMORY ****************** MEMORY ***************** */
 .memory-component-container {
-    height: 80vh;
+    height: 87vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 /* MEMORY MATCHES TRACKER ****************** MEMORY MATCHES TRACKER ****************** MEMORY MATCHES TRACKER */
@@ -479,16 +469,17 @@ main {
 }
 
 .memory-cards-container:first-child {
-    margin-right: 30px;
+    margin-right: 70px;
 }
 
 .memory-card {
     height: 0;
     padding-top: 100%;
     position: relative;
-    border: 2px solid rgb(179, 157, 209);
+    background-color: rgb(190, 172, 214);
     border-radius: 1%;
     cursor: pointer;
+    transition: background-color 1s;
 }
 
 .memory-card .animal-img {
@@ -500,8 +491,7 @@ main {
 }
 
 .dark-border {
-    transition: border-color 0.5s;
-    border-color: rgb(86, 14, 187); 
+    background-color: rgb(202, 191, 218); 
 }
 
 .memory-container .message-circle {
@@ -527,17 +517,7 @@ main {
   100%   { opacity: 1}
 }
 
-
 @keyframes slide { 
     0% {transform: translateX(-400px) translateY(200px) scale(5) rotate(360deg);}
     100% {transform: translateX(0) translateY(0) scale(1);}
-}
-
-@keyframes slideInFromTop {
-    0% {
-        transform: translateY(-90%);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }

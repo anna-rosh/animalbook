@@ -37,6 +37,7 @@ export default function MemorySounds() {
 
             setTimeout(() => {    
                 const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
+                console.log(clickedCard);
                 clickedCard.style.visibility="hidden";
                 clickedCard.classList.remove("dark-border");
 
@@ -49,9 +50,11 @@ export default function MemorySounds() {
 
             setTimeout(() => {
                 const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
+                console.log('clicked in not a match: ', clickedCard);
                 clickedCard.classList.remove("dark-border");
-                dispatch(closeSoundCard());
 
+                dispatch(closeSoundCard());
+                
             }, 2000);  
 
         } else {

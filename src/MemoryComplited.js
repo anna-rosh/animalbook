@@ -28,6 +28,7 @@ export default function MemoryComplited() {
 
         for (let i = 0; i < cards.length; i++) {
             cards[i].style.visibility = "visible";
+            cards[i].classList.remove = "dark-border";
         }
     };
 
