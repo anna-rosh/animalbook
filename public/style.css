@@ -7,6 +7,7 @@
 main {
     background-color: rgb(183, 160, 216);
     min-height: 100vh;
+    font-family: 'Righteous', cursive;
 }
 
 .app-container {
@@ -15,30 +16,125 @@ main {
     padding: 0 2%;
 }
 
+/* APP HEADER ************************* APP HEADER **************************** APP HEADER */
+.app-header {
+    height: 70px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header h2 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+
+.paw {
+    width: 25px;
+}
+
+.header-nav-container {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav-link {
+    color: black;
+}
+
+.header-nav-icon {
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.2s;
+}
+
+.header-nav-icon:hover {
+    outline: none;
+    opacity: 0.5;
+}
+
+.header-nav-icon:active {
+    color:rgb(253, 253, 150);
+}
+
+/* HOME COMPONENT ******************++ HOME COMPONENT ******************** HOME COMPONENT */
+.home-container {
+    width: 100%;
+    height: 90vh;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.activity-container {
+    color: rgb(205, 188, 228);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.7s;
+}
+
+.activity-container:hover,
+.activity-container:focus {
+    outline: none;
+    transform: scale(1.2);
+}
+
+.activity-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.activity-container h1 {
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
 /* LEARNING CARDS ******************** LEARNING CARDS *********************** LEARNING CARDS */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-flow: row;
     gap: 15px;
+    padding: 30px 60px;
 }
 
 .card {
     height: 0;
     padding-top: 100%;
     position: relative;
-    border: 1px solid rgb(179, 157, 209);
     border-radius: 1%;
+    cursor: pointer;
+    background-color: rgb(179, 157, 209);
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.card:hover {
+    background-color: rgb(186, 170, 209);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.card:active {
+    opacity: 0.7;
 }
 
 .cards-img-container {
     position: absolute;
     top: 0;
-    background-color: rgb(179, 157, 209);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 1%;
 }
 
 .animal-img {
@@ -66,10 +162,16 @@ main {
     position: absolute;
     top: 3%;
     right: 3%;
-    /* color: blue;
-    stroke-width: 1px;
-    width: 15px;
-    height: 15px; */
+    cursor: pointer;
+}
+
+.chevron {
+    cursor: pointer;
+}
+
+.close-animal-card:active,
+.chevron:active {
+    opacity: 0.5;
 }
 
 .chevron-placeholder {
@@ -82,7 +184,7 @@ main {
     height: 80vh;
     display: flex;
     align-items: center;
-    border-right: 1px solid black;
+    border-right: 2px solid black;
 }
 
 .card-img-container .animal-img {
@@ -96,18 +198,24 @@ main {
 }
 
 .audio-btn {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
-    border-radius: 2%;
+    width: 130px;
+    height: 130px;
+    background-color: rgb(205, 187, 230);
+    border-radius: 3%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    cursor: pointer;
+    transition: transform 0.5s;
 }
 
 .audio-btn:first-child {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+.audio-btn:hover {
+    transform: scale(1.1);
 }
 
 .message-circle {
@@ -229,7 +337,7 @@ main {
 
 .green-bg {
     transition: background-color 2s;
-    background-color: #91dd73;;
+    background-color: #91dd73;
 }
 
 .audio-btn-quiz:hover {
@@ -254,7 +362,7 @@ main {
 }
 
 /* QUIZ END ************ QUIZ END ************** QUIZ END ************* QUIZ END */
-.quiz-end-component-container {
+.game-end-component-container {
     padding: 0 3%;
     width: 100%;
     height: 100vh;
@@ -269,50 +377,50 @@ main {
     align-items: center;
 }
 
-.quiz-end-component-container .score-tracker-container {
+.game-end-component-container .score-tracker-container {
     align-self: center;
     margin-bottom: 100px;
 }
 
-.quiz-end-component-container .score-slot {
+.game-end-component-container .score-slot {
     width: 150px;
     height: 150px;
 }
 
-.quiz-end-component-container .score-slot.one {
+.game-end-component-container .score-slot.one {
     animation: 1s ease-out 0s 1 slideInFromTop;
 }
 
-.quiz-end-component-container .score-slot.two {
+.game-end-component-container .score-slot.two {
     animation: 1s ease-out 0.3s 1 slideInFromTop;
 }
 
-.quiz-end-component-container .score-slot.three {
+.game-end-component-container .score-slot.three {
     animation: 1s ease-out 0.6s 1 slideInFromTop;
 }
 
-.quiz-end-component-container .score-slot.four {
+.game-end-component-container .score-slot.four {
     animation: 1s ease-out 0.9s 1 slideInFromTop;
 }
 
-.quiz-end-component-container .score-slot.five {
+.game-end-component-container .score-slot.five {
     animation: 1s ease-out 1.2s 1 slideInFromTop;
 }
 
-.quiz-end-component-container .sun,
-.quiz-end-component-container .cloud {
+.game-end-component-container .sun,
+.game-end-component-container .cloud {
     width: 140px;
     height: 140px;
 }
 
-.quiz-end-component-container .nav-container {
+.game-end-component-container .nav-container {
     display: flex;
     justify-content: space-between;
     width: 300px;
     /* animation: 1.5s ease-out 1.3s 1 fadein; */
 }
 
-.quiz-end-component-container .nav-container .nav-icon {
+.game-end-component-container .nav-container .nav-icon {
     width: 100px;
     height: 100px;
     color: black;
@@ -320,14 +428,14 @@ main {
     cursor: pointer;
 }
 
-.quiz-end-component-container .nav-container .nav-icon:hover,
-.quiz-end-component-container .nav-container .nav-icon:focus {
+.game-end-component-container .nav-container .nav-icon:hover,
+.game-end-component-container .nav-container .nav-icon:focus {
     outline: none;
     transition: opacity 0.2s;
     opacity: 0.5;
 }
 
-.quiz-end-component-container .nav-container .nav-icon:active {
+.game-end-component-container .nav-container .nav-icon:active {
     color:rgb(253, 253, 150);
 }
 
@@ -345,7 +453,7 @@ main {
     width: 40px;
     height: 40px;
     display: block;
-    color: #91dd73;
+    color: rgb(255,218,185);
     z-index: 1;
     animation-name: slide;
     animation-duration: 1s;
@@ -406,6 +514,10 @@ main {
 }
 
 
+/* memory completed (come styling in quiz end section) *********** */
+.hidden {
+    visibility: hidden;
+}
 
 
 /* KEYFRAMES ANIMATIONS **************** KEYFRAMES ANIMATIONS **************** KEYFRAMES ANIMATIONS */
@@ -415,13 +527,9 @@ main {
   100%   { opacity: 1}
 }
 
-@keyframes diagonal {
-    0%       { transform: translatex(-400px) translatey(400px) }
-    100%     { transform: translatex(0) translatey(0) }
-}
 
 @keyframes slide { 
-    0% {transform: translateX(-400px) translateY(400px) scale(5) rotate(360deg);}
+    0% {transform: translateX(-400px) translateY(200px) scale(5) rotate(360deg);}
     100% {transform: translateX(0) translateY(0) scale(1);}
 }
 

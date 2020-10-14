@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import ScoreTracker from './ScoreTracker';
 import { Home, RotateCw } from 'react-feather';
@@ -9,7 +9,7 @@ export default function QuizEnd() {
     const dispatch = useDispatch();
 
     return (
-        <section className="quiz-end-component-container">
+        <section className="game-end-component-container">
             <ScoreTracker />
             <div className="nav-container">
                 <Link to="/"><Home onClick={() => dispatch(emptyScoreTracker())} className="nav-icon" /></Link>

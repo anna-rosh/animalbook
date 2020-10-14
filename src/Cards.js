@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { receiveAllAnimals, showClickedAnimal } from './actions';
-import { Link } from 'react-router-dom';
 import AnimalCard from './AnimalCard';
 
 export default function Cards() {

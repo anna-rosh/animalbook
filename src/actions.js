@@ -128,3 +128,10 @@ export function countMatches() {
         matches: [true]
     };
 }
+
+export function emptyMatchTracker() {
+    return {
+        type: "EMPTY_MATCH_TRACKER",
+        matches: []
+    };
+}

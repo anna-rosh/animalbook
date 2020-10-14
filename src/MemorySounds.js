@@ -33,18 +33,19 @@ export default function MemorySounds() {
     
     const checkForMatch = () => {
         if (clickedSoundId && clickedImgId && clickedImgId === clickedSoundId) {
-            console.log("MATCH");
+            // console.log("MATCH");
 
             setTimeout(() => {    
                 const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
                 clickedCard.style.visibility="hidden";
+                clickedCard.classList.remove("dark-border");
 
                 dispatch(closeSoundCard());
 
             }, 2000);
 
         } else if (clickedSoundId && clickedImgId && clickedImgId !== clickedSoundId) {
-            console.log("NOT A MATCH");
+            // console.log("NOT A MATCH");
 
             setTimeout(() => {
                 const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
@@ -59,6 +60,7 @@ export default function MemorySounds() {
     }; // closes checkForMatch
 
     checkForMatch();
+
 
     if (!soundCards) {
         return "Loading";

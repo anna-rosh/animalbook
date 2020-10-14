@@ -18,7 +18,7 @@ export default function AnimalCard() {
         <section className="animal-card-container">
             {/* check if the next id is less than zero. if so don't display navigation btn */}
             {(clickedAnimal.id - 1) > 0 
-                ? (<div onClick={() => dispatch(showClickedAnimal(clickedAnimal.id - 1))}><ChevronLeft size={70} /></div>)
+                ? (<div onClick={() => dispatch(showClickedAnimal(clickedAnimal.id - 1))}><ChevronLeft size={70} className="chevron" /></div>)
                 : (<div className="chevron-placeholder"></div>)
             }
             <div onClick={() => dispatch(hideAnimalCard())}><XCircle className="close-animal-card" size={70} /></div>
@@ -43,7 +43,7 @@ export default function AnimalCard() {
             </div>
                 
             {(clickedAnimal.id + 1) <= allAnimals.length
-                ? (<div onClick={() => dispatch(showClickedAnimal(clickedAnimal.id + 1))}><ChevronRight size={70} /></div>)
+                ? (<div onClick={() => dispatch(showClickedAnimal(clickedAnimal.id + 1))}><ChevronRight size={70} className="chevron" /></div>)
                 : (<div className="chevron-placeholder"></div>)
             }  
         </section>

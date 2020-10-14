@@ -102,6 +102,14 @@ export default function(state = {}, action) {
         };
     }
 
-
+    if (action.type === "EMPTY_MATCH_TRACKER") {
+        state = {
+            ...state,
+            matches: action.matches
+        };
+    }
+    
+    
+    
     return state;
 }

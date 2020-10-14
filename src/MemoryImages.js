@@ -8,7 +8,6 @@ export default function MemoryImages() {
     const clickedImgId = useSelector((state) => state && state.clickedImgId);
     const clickedSoundId = useSelector((state) => state && state.clickedSoundId);
     const clickedImgIndex = useSelector((state) => state && state.clickedImgIndex);
-    const matches = useSelector((state) => state && state.matches);
 
     useEffect(() => {
         dispatch(receiveCardsContent());
@@ -27,7 +26,7 @@ export default function MemoryImages() {
 
     const checkForMatch = () => {
         if (clickedSoundId && clickedImgId && clickedImgId === clickedSoundId) {
-            console.log("MATCH");
+            // console.log("MATCH");
 
             setTimeout(() => {    
                 const clickedCard = document.getElementsByClassName("memory-card")[clickedImgIndex];
@@ -41,7 +40,7 @@ export default function MemoryImages() {
             }, 2000);
 
         } else if (clickedSoundId && clickedImgId && clickedImgId !== clickedSoundId) {
-            console.log("NOT A MATCH");
+            // console.log("NOT A MATCH");
 
             setTimeout(() => {
                 const clickedImg = document.getElementsByClassName("animal-img")[clickedImgIndex];
