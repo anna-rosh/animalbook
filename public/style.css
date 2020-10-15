@@ -321,9 +321,11 @@ main {
 
 .answer {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    width: 170px;
 }
+
 
 .audio-btn-quiz {
     width: 100px;
@@ -336,7 +338,7 @@ main {
     align-items: flex-end;
     margin-bottom: 20px;
     cursor: pointer;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, transform 0.5s;
 }
 
 .green-bg {
@@ -346,17 +348,18 @@ main {
 
 .audio-btn-quiz:hover {
     background-color: rgb(197, 172, 231);
+    transform: scale(1.2);
 }
 
 .thumbs-up {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: color 0.2s;
 }
 
 .thumbs-up:hover { 
-    transform: scale(1.2);
+   color:rgb(253, 253, 150); 
 }
 
 .thumbs-up:active,
@@ -476,12 +479,15 @@ main {
     height: 0;
     padding-top: 100%;
     position: relative;
-    background-color: rgb(190, 172, 214);
+    background-color: rgb(200, 177, 243);
     border-radius: 1%;
     cursor: pointer;
     transition: background-color 1s;
 }
 
+.memory-card:hover {
+    background-color: rgb(212, 194, 245);
+}
 
 .chosen-card {
     height: 0;
@@ -489,7 +495,7 @@ main {
     position: relative;
     border-radius: 1%;
     cursor: pointer;
-    background-color: rgb(217, 212, 226); 
+    background-color: rgb(212, 194, 245); 
 }
 
 .memory-container .message-circle {

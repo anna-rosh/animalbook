@@ -35,14 +35,32 @@ export default function MemorySounds() {
             
             {soundCards.map((audio, i) => {
                 return (
-                    <div className={audioId === audio.id ? "chosen-card" : "memory-card sound-card"} style={{ visibility: matches && matches.includes(audio.id) ? "hidden" : "visible"}} key={audio.id} onClick={() => openSoundCard(audio.id, i)}>
+                    <div
+                        className={
+                            audioId === audio.id
+                                ? "chosen-card"
+                                : "memory-card sound-card"
+                        }
+                        style={{
+                            visibility:
+                                matches && matches.includes(audio.id)
+                                    ? "hidden"
+                                    : "visible",
+                        }}
+                        key={audio.id}
+                        onClick={() => openSoundCard(audio.id, i)}
+                    >
                         <div className="cards-img-container sound-btn">
                             <MessageCircle className="message-circle mirrored" />
-                            <img className="audio-btn-img" src="/img/person-speaks.png" />
+                            <img
+                                className="audio-btn-img"
+                                src="/img/person-speaks.png"
+                            />
                         </div>
                         <audio className="term-audio">
-                            <source  src={audio.term_read}></source>
+                            <source src={audio.term_read}></source>
                         </audio>
+                
                     </div>
                 );
             })}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { receiveCardsContent, updateClickedImgInfo } from "./actions";
+import { playAudio } from './play';
 
 export default function MemoryImages() {
     const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export default function MemoryImages() {
             return;
         }
 
+        playAudio("button-click", 0);
+
         dispatch(updateClickedImgInfo(id, imgCardIndex));
     };
 
@@ -29,17 +32,30 @@ export default function MemoryImages() {
 
     return (
         <div className="memory-cards-container">
-
             {imgCards.map((img, i) => {
-                
-                return(
-                    <div key={img.id} className="memory-card" style={{ visibility: matches && matches.includes(img.id) ? "hidden" : "visible"}} onClick={() => openImgCard(img.id, i)} >
+                return (
+                    <div
+                        key={img.id}
+                        className={imgId === img.id ? "chosen-card" : "memory-card"}
+                        style={{
+                            visibility:
+                                matches && matches.includes(img.id)
+                                    ? "hidden"
+                                    : "visible",
+                        }}
+                        onClick={() => openImgCard(img.id, i) }
+                    >
                         <div className="cards-img-container">
-                            {img.id === imgId && <img className="animal-img" src={img.img} />}
+                            {img.id === imgId && (
+                                <img className="animal-img" src={img.img} />
+                            )}
                         </div>
                     </div>
                 );
             })}
+            <audio className="button-click">
+                <source src="/sounds/button.mp3"></source>
+            </audio>
         </div>
     );
 }

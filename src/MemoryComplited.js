@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import MatchTracket from './MatchTracker';
 import { clearState, receiveCardsContent } from './actions';
 import { Link } from "react-router-dom";
+import { playAudio } from "./play";
 
 
 export default function MemoryComplited() {
@@ -11,9 +12,9 @@ export default function MemoryComplited() {
 
     useEffect(() => {
         setTimeout(() => {
-            document
-                .getElementById("memory-end-container")
-                .classList.remove("hidden");
+            document.getElementById("memory-end-container").classList.remove("hidden");
+            playAudio("victory-sound", 0);
+
         }, 1000);
     }, []);
 
@@ -24,18 +25,20 @@ export default function MemoryComplited() {
     };
 
     return (
-        <section className="game-end-component-container hidden" id="memory-end-container">
+        <section
+            className="game-end-component-container hidden"
+            id="memory-end-container"
+        >
             <MatchTracket />
             <div className="nav-container">
                 <Link to="/">
-                    <Home
-                        className="nav-icon"
-                    />
+                    <Home className="nav-icon" />
                 </Link>
-                <RotateCw
-                    className="nav-icon" onClick={resetGame}
-                />
+                <RotateCw className="nav-icon" onClick={resetGame} />
             </div>
+            <audio className="victory-sound">
+                <source src="/sounds/victory.mp3"></source>
+            </audio>
         </section>
     );
 }
