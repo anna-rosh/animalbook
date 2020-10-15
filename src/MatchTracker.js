@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 export default function MatchTracket() {
     const matches = useSelector((state) => state && state.matches);
 
+
     return (
         <div className="score-tracker-container">
             <div className="score-slot">

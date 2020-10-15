@@ -63,53 +63,43 @@ export default function(state = {}, action) {
         };
     }
 
-    if (action.type === "OPEN_IMG_CARD") {
+    if (action.type === "UPDATE_CLICKED_IMG_INFO") {
         state = {
             ...state,
-            clickedImgId: action.clickedImgId,
-            clickedImgIndex: action.clickedImgIndex
+            imgId: action.imgId,
+            imgCardIndex: action.imgCardIndex
         };
     }
 
-    if (action.type === "OPEN_SOUND_CARD") {
+    if (action.type === "UPDATE_CLICKED_AUDIO-INFO") {
         state = {
             ...state,
-            clickedSoundId: action.clickedSoundId,
-            clickedSoundIndex: action.clickedSoundIndex
+            audioId: action.audioId,
+            audioCardIndex: action.audioCardIndex
         };
     }
 
-    if (action.type === "CLOSE_IMG_CARD") {
+    if (action.type === "MATCH_WAS_FOUND") {
         state = {
             ...state,
-            clickedImgId: action.clickedImgId,
-            clickedImgIndex: action.clickedImgIndex,
-        };
-    }
-
-    if (action.type === "CLOSE_SOUND_CARD") {
-        state = {
-            ...state,
-            clickedSoundId: action.clickedSoundId,
-            clickedSoundIndex: action.clickedSoundIndex,
+            imgId: action.imgId,
+            imgCardIndex: action.imgCardIndex,
+            audioId: action.audioId,
+            audioCardIndex: action.audioCardIndex,
         };
     }
 
     if (action.type === "COUNT_MATCHES") {
         state = {
             ...state,
-            matches: state.matches ? [...state.matches, ...action.matches] : action.matches
+            matches: state.matches ? [...state.matches, ...action.matchId] : action.matchId
         };
     }
 
-    if (action.type === "EMPTY_MATCH_TRACKER") {
-        state = {
-            ...state,
-            matches: action.matches
-        };
+    if (action.type === "CLEAR_STATE") {
+        state = {};
     }
-    
-    
+
     
     return state;
 }

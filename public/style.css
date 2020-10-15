@@ -482,16 +482,14 @@ main {
     transition: background-color 1s;
 }
 
-.memory-card .animal-img {
-    visibility: hidden;
-}
 
-.visible {
-    visibility: visible;
-}
-
-.dark-border {
-    background-color: rgb(202, 191, 218); 
+.chosen-card {
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    border-radius: 1%;
+    cursor: pointer;
+    background-color: rgb(217, 212, 226); 
 }
 
 .memory-container .message-circle {

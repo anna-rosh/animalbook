@@ -86,52 +86,41 @@ export async function receiveCardsContent() {
     };
 }
 
-export function openImgCard(id, index) {
-    console.log('the following animal was clicked: ', id);
-
+export function updateClickedImgInfo(imgId, cardIndex) {
     return {
-        type: "OPEN_IMG_CARD",
-        clickedImgId: id,
-        clickedImgIndex: index
+        type: "UPDATE_CLICKED_IMG_INFO",
+        imgId: imgId,
+        imgCardIndex: cardIndex
     };
 }
 
-export function openSoundCard(id, index) {
-    console.log("the following sound was clicked: ", id);
-
+export function updateClickedAudioInfo(audioId, cardIndex) {
     return {
-        type: "OPEN_SOUND_CARD",
-        clickedSoundId: id,
-        clickedSoundIndex: index
+        type: "UPDATE_CLICKED_AUDIO-INFO",
+        audioId: audioId,
+        audioCardIndex: cardIndex
     };
 }
 
-export function closeImgCard() {
+export function matchWasFound() {
     return {
-        type: "CLOSE_IMG_CARD",
-        clickedImgId: null,
-        clickedImgIndex: null,
+        type: "MATCH_WAS_FOUND",
+        imgId: null,
+        imgCardIndex: null,
+        audioId: null,
+        audioCardIndex: null
     };
 }
 
-export function closeSoundCard() {
-    return {
-        type: "CLOSE_SOUND_CARD",
-        clickedSoundId: null,
-        clickedSoundIndex: null,
-    };
-}
-
-export function countMatches() {
+export function countMatches(id) {
     return {
         type: "COUNT_MATCHES",
-        matches: [true]
+        matchId: [id]
     };
 }
 
-export function emptyMatchTracker() {
+export function clearState() {
     return {
-        type: "EMPTY_MATCH_TRACKER",
-        matches: []
+        type: "CLEAR_STATE"
     };
 }

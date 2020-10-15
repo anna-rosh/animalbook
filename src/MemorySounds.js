@@ -1,68 +1,29 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { receiveCardsContent, openSoundCard, closeSoundCard } from "./actions";
+import { receiveCardsContent, updateClickedAudioInfo } from "./actions";
 import { playAudio } from './play';
 import { MessageCircle } from 'react-feather';
 
 export default function MemorySounds() {
     const dispatch = useDispatch();
     const soundCards = useSelector((state) => state && state.soundCards);
-    const clickedImgId = useSelector((state) => state && state.clickedImgId);
-    const clickedSoundId = useSelector((state) => state && state.clickedSoundId);
-    const clickedSoundIndex = useSelector((state) => state && state.clickedSoundIndex);
-
+    const audioId = useSelector((state) => state && state.audioId);
+    const matches = useSelector((state) => state && state.matches);
 
     useEffect(() => {
         dispatch(receiveCardsContent());
+
     }, []);
 
-
-    const handleClick = (elementClass, index, soundId) => {
-        // if one card is already open, prevent users from clicking other cards
-        if (clickedSoundId) {
+    const openSoundCard = (id, soundCardIndex) => {
+        if (audioId) {
             return;
         }
 
-        const clickedCard = document.getElementsByClassName("sound-card")[index];
-        clickedCard.classList.add("dark-border");
+        playAudio("term-audio", soundCardIndex);
 
-        playAudio(elementClass, index);
-        dispatch(openSoundCard(soundId, index));
+        dispatch(updateClickedAudioInfo(id, soundCardIndex));
     };
-
-    
-    const checkForMatch = () => {
-        if (clickedSoundId && clickedImgId && clickedImgId === clickedSoundId) {
-            // console.log("MATCH");
-
-            setTimeout(() => {    
-                const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
-                console.log(clickedCard);
-                clickedCard.style.visibility="hidden";
-                clickedCard.classList.remove("dark-border");
-
-                dispatch(closeSoundCard());
-
-            }, 2000);
-
-        } else if (clickedSoundId && clickedImgId && clickedImgId !== clickedSoundId) {
-            // console.log("NOT A MATCH");
-
-            setTimeout(() => {
-                const clickedCard = document.getElementsByClassName("sound-card")[clickedSoundIndex];
-                console.log('clicked in not a match: ', clickedCard);
-                clickedCard.classList.remove("dark-border");
-
-                dispatch(closeSoundCard());
-                
-            }, 2000);  
-
-        } else {
-            return;
-        }
-    }; // closes checkForMatch
-
-    checkForMatch();
 
 
     if (!soundCards) {
@@ -71,9 +32,10 @@ export default function MemorySounds() {
 
     return (
         <div className="memory-cards-container">
+            
             {soundCards.map((audio, i) => {
                 return (
-                    <div className="memory-card sound-card" key={audio.id} onClick={() => handleClick('term-audio', i, audio.id)}>
+                    <div className={audioId === audio.id ? "chosen-card" : "memory-card sound-card"} style={{ visibility: matches && matches.includes(audio.id) ? "hidden" : "visible"}} key={audio.id} onClick={() => openSoundCard(audio.id, i)}>
                         <div className="cards-img-container sound-btn">
                             <MessageCircle className="message-circle mirrored" />
                             <img className="audio-btn-img" src="/img/person-speaks.png" />

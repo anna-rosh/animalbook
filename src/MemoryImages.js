@@ -1,62 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { receiveCardsContent, openImgCard, closeImgCard, countMatches } from "./actions";
+import { receiveCardsContent, updateClickedImgInfo } from "./actions";
 
 export default function MemoryImages() {
     const dispatch = useDispatch();
     const imgCards = useSelector((state) => state && state.imgCards);
-    const clickedImgId = useSelector((state) => state && state.clickedImgId);
-    const clickedSoundId = useSelector((state) => state && state.clickedSoundId);
-    const clickedImgIndex = useSelector((state) => state && state.clickedImgIndex);
+    const imgId = useSelector((state) => state && state.imgId);
+    const matches = useSelector((state) => state && state.matches);
 
     useEffect(() => {
         dispatch(receiveCardsContent());
     }, []);
 
-    const handleClick = (index, imgId) => {
-        // if one card is already open, prevent users from clicking other cards
-        if (clickedImgId) {
+    
+    const openImgCard = (id, imgCardIndex) => {
+        // if imgId already is in the state, don't allow to open other cards
+        if (imgId) {
             return;
         }
 
-        const clickedImg = document.getElementsByClassName("animal-img")[index];
-        clickedImg.style.visibility = "visible";
-
-        dispatch(openImgCard(imgId, index));
+        dispatch(updateClickedImgInfo(id, imgCardIndex));
     };
 
-    const checkForMatch = () => {
-        if (clickedSoundId && clickedImgId && clickedImgId === clickedSoundId) {
-            // console.log("MATCH");
-
-            setTimeout(() => {    
-                const clickedCard = document.getElementsByClassName("memory-card")[clickedImgIndex];
-                clickedCard.style.visibility="hidden";
-                const clickedImg = document.getElementsByClassName("animal-img")[clickedImgIndex];
-                clickedImg.style.visibility = "hidden";
-
-                dispatch(closeImgCard());
-                dispatch(countMatches());
-
-            }, 2000);
-
-        } else if (clickedSoundId && clickedImgId && clickedImgId !== clickedSoundId) {
-            // console.log("NOT A MATCH");
-
-            setTimeout(() => {
-                const clickedImg = document.getElementsByClassName("animal-img")[clickedImgIndex];
-                clickedImg.style.visibility = "hidden";
-
-                dispatch(closeImgCard());
-
-            }, 2000);  
-
-        } else {
-            return;
-        }
-    };
-
-    checkForMatch();
 
     if (!imgCards) {
         return 'Loading';
@@ -64,11 +29,13 @@ export default function MemoryImages() {
 
     return (
         <div className="memory-cards-container">
+
             {imgCards.map((img, i) => {
+                
                 return(
-                    <div key={img.id} className="memory-card" onClick={() => handleClick(i, img.id)}>
+                    <div key={img.id} className="memory-card" style={{ visibility: matches && matches.includes(img.id) ? "hidden" : "visible"}} onClick={() => openImgCard(img.id, i)} >
                         <div className="cards-img-container">
-                            <img className="animal-img" src={img.img} />
+                            {img.id === imgId && <img className="animal-img" src={img.img} />}
                         </div>
                     </div>
                 );
