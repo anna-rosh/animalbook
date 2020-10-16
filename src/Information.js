@@ -14,6 +14,7 @@ export default function Info() {
             <div className="info-container">
                 <X className="x" onClick={() => dispatch(showOrHideInfo(infoIsVisible))} />
                 <h2>Information für Eltern</h2>
+                <h4>Willkomen im Tierbuch! Diese Kinderapp richtet sich </h4>
                 <h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore
                     magna aliquyam erat, sed diam voluptua. At vero eos et
