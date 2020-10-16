@@ -36,8 +36,11 @@ export default function Question() {
     return (
         <div className="question-container">
             <div className="question-img-container">
-                <img src={quizQuestion.question.img} className="question-animal-img" />
+                <img src={quizQuestion.question.img} className="question-animal-img" onClick={() => playAudio("sound-audio", 0)} />
             </div>
+            <audio className="sound-audio">
+                <source  src={quizQuestion.question.sound}></source>
+            </audio>
             <div className="answers-container">
                 {quizQuestion.answers.map((answer, i) => {
                     return (
@@ -46,7 +49,9 @@ export default function Question() {
                                 <MessageCircle className="message-circle mirrored" />
                                 <img className="audio-btn-img" src="/img/person-speaks.png" />
                             </div>
-                            <ThumbsUp className="thumbs-up" onClick={() => checkAnswer(answer)}/>
+                            <div className="thumb-container" onClick={() => checkAnswer(answer)}>
+                                <ThumbsUp className="thumbs-up" /> 
+                            </div>
                             <audio className="term-audio">
                                 <source  src={answer}></source>
                             </audio>

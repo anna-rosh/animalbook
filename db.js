@@ -22,7 +22,7 @@ module.exports.getAnimalById = (animalId) => {
 // used in quiz
 module.exports.getRandomAnimal = () => {
     return db.query(
-        `SELECT id, img, term_read FROM animals
+        `SELECT id, img, term_read, sound FROM animals
         ORDER BY RANDOM()
         LIMIT 1`
     );

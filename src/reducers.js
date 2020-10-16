@@ -100,6 +100,14 @@ export default function(state = {}, action) {
         state = {};
     }
 
+    if (action.type === "SHOW_OR_HIDE_INFO") {
+        state = {
+            ...state,
+            infoIsVisible: action.infoIsVisible
+        };
+    }
+    
+    
     
     return state;
 }

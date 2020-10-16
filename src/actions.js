@@ -124,3 +124,11 @@ export function clearState() {
         type: "CLEAR_STATE"
     };
 }
+
+
+export function showOrHideInfo(bool) {
+    return {
+        type: "SHOW_OR_HIDE_INFO",
+        infoIsVisible: bool ? false : true
+    };
+}

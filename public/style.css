@@ -23,6 +23,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .app-header h2 {
@@ -43,6 +44,7 @@ main {
 
 .header-nav-link {
     color: black;
+    cursor: pointer;
 }
 
 .header-nav-icon {
@@ -58,6 +60,44 @@ main {
 
 .header-nav-icon:active {
     color:rgb(253, 253, 150);
+}
+
+/* INFORMATION COMPONENT ****************** INFORMATION COMPONENT ************* INFORMATION COMPONENT*/
+.info-overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+
+.info-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    width: 400px;
+    height: 600px;
+    z-index: 2;
+    animation: 1s ease-in slideIn;
+}
+
+.x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+
+@keyframes slideIn {
+  0% { transform: translateX(100%); opacity: 0; }
+  100%   { transform: translateX(0); opacity: 1; }
 }
 
 /* HOME COMPONENT ******************++ HOME COMPONENT ******************** HOME COMPONENT */
@@ -83,6 +123,10 @@ main {
 .activity-container:focus {
     outline: none;
     transform: scale(1.2);
+}
+
+.activity-container:active {
+    transform: scale(0.7);
 }
 
 .activity-icon {
@@ -125,6 +169,7 @@ main {
 
 .card:active {
     opacity: 0.7;
+    transform: scale(0.7);
 }
 
 .cards-img-container {
@@ -207,7 +252,7 @@ main {
     justify-content: center;
     align-items: flex-end;
     cursor: pointer;
-    transition: transform 0.5s, background-color 0.5s;
+    transition: transform 0.5s;
 }
 
 .audio-btn:first-child {
@@ -216,7 +261,10 @@ main {
 
 .audio-btn:hover {
     transform: scale(1.1);
-    background-color: rgb(197, 172, 231);
+}
+
+.audio-btn:active {
+    transform: scale(0.7);
 }
 
 .message-circle {
@@ -304,13 +352,19 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .question-animal-img {
     width: 90%;
     height: 90%;
     object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.question-animal-img:active {
+    transform: scale(0.7);
 }
 
 .answers-container {
@@ -323,13 +377,13 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 170px;
+    width: 210px;
 }
 
 
 .audio-btn-quiz {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     position: relative;
     background-color: rgb(205, 187, 230);
     border-radius: 3%;
@@ -338,24 +392,35 @@ main {
     align-items: flex-end;
     margin-bottom: 20px;
     cursor: pointer;
-    transition: background-color 0.5s, transform 0.5s;
+    transition: background-color 2s, transform 0.5s;
 }
 
 .green-bg {
-    transition: background-color 2s;
     background-color: #91dd73;
 }
 
 .audio-btn-quiz:hover {
-    background-color: rgb(197, 172, 231);
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+.thumb-container {
+    width: 90px;
+    height: 90px;
+    background-color: rgb(205, 187, 230);
+    border-radius: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.5s;
 }
 
 .thumbs-up {
     width: 40px;
     height: 40px;
-    cursor: pointer;
-    transition: color 0.2s;
+    stroke-width: 1px;
+    transition: color 0.4s;
 }
 
 .thumbs-up:hover { 
@@ -365,6 +430,14 @@ main {
 .thumbs-up:active,
 .thumbs-up:focus {
     color:rgb(253, 253, 150);
+}
+
+.thumb-container:hover {
+    transform: scale(1.1);
+}
+
+.thumb-container:active {
+    transform: scale(-0.1);
 }
 
 /* QUIZ END ************ QUIZ END ************** QUIZ END ************* QUIZ END */
