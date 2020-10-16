@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom';
 import HomeComponent from './HomeComponent';
 import Cards from './Cards';
 import Quiz from './Quiz';
@@ -31,6 +31,7 @@ export default function App() {
                 <Route exact path="/cards" render={() => <Cards />} />
                 <Route exact path="/quiz" render={() => <Quiz />} />
                 <Route exact path="/memory" render={() => <Memory />} />
+                <Redirect from="*" to="/" />
             </section>
         </BrowserRouter>
     );
