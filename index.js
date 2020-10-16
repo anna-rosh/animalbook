@@ -146,6 +146,6 @@ app.get('*', function(req, res) {
 });
 ////////////////// DO NOT CHANGE THE CODE BELOW THIS LINE ///////////////
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function () {
     console.log("server of the final project is listening 🐱🐶🐨🦉");
 });

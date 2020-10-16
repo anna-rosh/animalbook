@@ -78,11 +78,12 @@ main {
 
 .info-container {
     position: absolute;
+    padding: 0 10px;
     top: 10px;
     right: 10px;
     background-color: #fff;
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 700px;
     z-index: 2;
     animation: 1s ease-in slideIn;
 }
@@ -94,6 +95,16 @@ main {
     cursor: pointer;
 }
 
+.info-container h2 {
+    border-bottom: 1px solid black;
+}
+
+.info-container h5 {
+    color: grey;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+}
 
 @keyframes slideIn {
   0% { transform: translateX(100%); opacity: 0; }
