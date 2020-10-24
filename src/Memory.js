@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import MemoryImages from './MemoryImages';
 import MemorySounds from './MemorySounds';
-import MatchTracker from './Matchtracker';
+import MatchTracker from './MatchTracker';
 import MemoryComplited from './MemoryComplited';
 import { matchWasFound, countMatches, clearState } from "./actions";
 import { useSelector, useDispatch } from 'react-redux';

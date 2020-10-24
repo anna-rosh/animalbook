@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Home, RotateCw } from "react-feather";
 import { useDispatch } from "react-redux";
-import MatchTracket from './MatchTracker';
+import MatchTracker from './MatchTracker';
 import { clearState, receiveCardsContent } from './actions';
 import { Link } from "react-router-dom";
 import { playAudio } from "./play";
@@ -29,7 +29,7 @@ export default function MemoryComplited() {
             className="game-end-component-container hidden"
             id="memory-end-container"
         >
-            <MatchTracket />
+            <MatchTracker />
             <div className="nav-container">
                 <Link to="/">
                     <Home className="nav-icon" />

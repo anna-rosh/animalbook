@@ -3,7 +3,7 @@ import { Gift } from 'react-feather';
 import { useSelector } from 'react-redux';
 
 
-export default function MatchTracket() {
+export default function MatchTracker() {
     const matches = useSelector((state) => state && state.matches);
 
 
