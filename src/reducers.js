@@ -79,7 +79,7 @@ export default function(state = {}, action) {
         };
     }
 
-    if (action.type === "MATCH_WAS_FOUND") {
+    if (action.type === "CLOSE_CARDS") {
         state = {
             ...state,
             imgId: action.imgId,

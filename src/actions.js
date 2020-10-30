@@ -102,9 +102,9 @@ export function updateClickedAudioInfo(audioId, cardIndex) {
     };
 }
 
-export function matchWasFound() {
+export function closeCards() {
     return {
-        type: "MATCH_WAS_FOUND",
+        type: "CLOSE_CARDS",
         imgId: null,
         imgCardIndex: null,
         audioId: null,

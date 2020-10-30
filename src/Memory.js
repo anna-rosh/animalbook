@@ -3,7 +3,7 @@ import MemoryImages from './MemoryImages';
 import MemorySounds from './MemorySounds';
 import MatchTracker from './MatchTracker';
 import MemoryComplited from './MemoryComplited';
-import { matchWasFound, countMatches, clearState } from "./actions";
+import { closeCards, countMatches, clearState } from "./actions";
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -19,13 +19,13 @@ export default function Memory() {
 
             if (lookForMatch(imgId, audioId)) {
                 setTimeout(() => {
-                    dispatch(matchWasFound());
+                    dispatch(closeCards());
                     dispatch(countMatches(imgId));
                 }, 2000);
             
             } else {
                 setTimeout(() => {
-                    dispatch(matchWasFound(false));
+                    dispatch(closeCards());
                 }, 2000);
             } 
 

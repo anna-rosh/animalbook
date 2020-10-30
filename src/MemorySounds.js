@@ -10,10 +10,11 @@ export default function MemorySounds() {
     const audioId = useSelector((state) => state && state.audioId);
     const matches = useSelector((state) => state && state.matches);
 
-    useEffect(() => {
-        dispatch(receiveCardsContent());
+    // receiving cards content neccessary here as it happens in MemoryImages
+    // useEffect(() => {
+    //     dispatch(receiveCardsContent());
 
-    }, []);
+    // }, []);
 
     const openSoundCard = (id, soundCardIndex) => {
         if (audioId) {
