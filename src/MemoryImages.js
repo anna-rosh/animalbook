@@ -14,7 +14,7 @@ export default function MemoryImages() {
     }, []);
 
     
-    const openImgCard = (id, imgCardIndex) => {
+    const openImgCard = (id) => {
         // if imgId already is in the state, don't allow to open other cards
         if (imgId) {
             return;
@@ -22,7 +22,7 @@ export default function MemoryImages() {
 
         playAudio("button-click", 0);
 
-        dispatch(updateClickedImgInfo(id, imgCardIndex));
+        dispatch(updateClickedImgInfo(id));
     };
 
 
@@ -43,7 +43,7 @@ export default function MemoryImages() {
                                     ? "hidden"
                                     : "visible",
                         }}
-                        onClick={() => openImgCard(img.id, i) }
+                        onClick={() => openImgCard(img.id) }
                     >
                         <div className="cards-img-container">
                             {img.id === imgId && (

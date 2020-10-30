@@ -66,16 +66,14 @@ export default function(state = {}, action) {
     if (action.type === "UPDATE_CLICKED_IMG_INFO") {
         state = {
             ...state,
-            imgId: action.imgId,
-            imgCardIndex: action.imgCardIndex
+            imgId: action.imgId
         };
     }
 
     if (action.type === "UPDATE_CLICKED_AUDIO-INFO") {
         state = {
             ...state,
-            audioId: action.audioId,
-            audioCardIndex: action.audioCardIndex
+            audioId: action.audioId
         };
     }
 
@@ -83,9 +81,7 @@ export default function(state = {}, action) {
         state = {
             ...state,
             imgId: action.imgId,
-            imgCardIndex: action.imgCardIndex,
-            audioId: action.audioId,
-            audioCardIndex: action.audioCardIndex,
+            audioId: action.audioId
         };
     }
 

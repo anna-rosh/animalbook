@@ -86,19 +86,17 @@ export async function receiveCardsContent() {
     };
 }
 
-export function updateClickedImgInfo(imgId, cardIndex) {
+export function updateClickedImgInfo(imgId) {
     return {
         type: "UPDATE_CLICKED_IMG_INFO",
-        imgId: imgId,
-        imgCardIndex: cardIndex
+        imgId: imgId
     };
 }
 
-export function updateClickedAudioInfo(audioId, cardIndex) {
+export function updateClickedAudioInfo(audioId) {
     return {
         type: "UPDATE_CLICKED_AUDIO-INFO",
-        audioId: audioId,
-        audioCardIndex: cardIndex
+        audioId: audioId
     };
 }
 
@@ -106,9 +104,7 @@ export function closeCards() {
     return {
         type: "CLOSE_CARDS",
         imgId: null,
-        imgCardIndex: null,
-        audioId: null,
-        audioCardIndex: null
+        audioId: null
     };
 }
 

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { receiveCardsContent, updateClickedAudioInfo } from "./actions";
+import { updateClickedAudioInfo } from "./actions";
 import { playAudio } from './play';
 import { MessageCircle } from 'react-feather';
 
@@ -23,7 +23,7 @@ export default function MemorySounds() {
 
         playAudio("term-audio", soundCardIndex);
 
-        dispatch(updateClickedAudioInfo(id, soundCardIndex));
+        dispatch(updateClickedAudioInfo(id));
     };
 
 
