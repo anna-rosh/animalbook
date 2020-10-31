@@ -7,7 +7,6 @@ import { ThumbsUp, MessageCircle } from 'react-feather';
 export default function Question() {
     const dispatch = useDispatch();
     const quizQuestion = useSelector((state) => state && state.quizQuestion);
-    const questionCount = useSelector((state) => state && state.questionCount);
 
     useEffect(() => {
         dispatch(getQuizQuestion());
@@ -18,11 +17,12 @@ export default function Question() {
         if (clickedAnswerId === quizQuestion.question.id) {
             dispatch(updateUserScore(1));
             playRightAnswer(quizQuestion.question.id);
-            ShowNextQuestion(dispatch, questionCount);   
+            ShowNextQuestion(dispatch, quizQuestion.question.id);
+
         } else {
             dispatch(updateUserScore(2));
             playRightAnswer(quizQuestion.question.id);
-            ShowNextQuestion(dispatch, questionCount);
+            ShowNextQuestion(dispatch, quizQuestion.question.id);
         }
     };
 
@@ -61,21 +61,22 @@ export default function Question() {
     );
 }
 
-const ShowNextQuestion = (dispatch, questionCount) => {
-    setTimeout(() => {
-        let currVal = questionCount;
-        dispatch(getQuizQuestion());
-        let btns = document.getElementsByClassName("audio-btn-quiz");
 
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].classList.remove("green-bg");
-        }
+const ShowNextQuestion = (dispatch, correctAnswerId) => {
+    setTimeout(() => {
+        // get a new set of data for the question and the answer option
+        dispatch(getQuizQuestion());
+        // remove the green bg from the btn
+        document.getElementById(`${correctAnswerId}`).classList.remove("green-bg");
+
     }, 2500);
 };
+
 
 const playRightAnswer = (correctAnswerId) => {
     // get the right btn by Id which corresponds this the id of the right answer
     const rightOption = document.getElementById(`${correctAnswerId}`);
+    // add green bg to display the right answer
     rightOption.classList.add("green-bg");
 
     playAudio(`${correctAnswerId}`, 0);

@@ -485,7 +485,9 @@ main {
     height: 140px;
 }
 
-.game-end-component-container .gift {
+.game-end-component-container .gift,
+.game-end-component-container .sun,
+.game-end-component-container .cloud {
     animation: 1s ease-out fadein, 1s ease-out slide;
     animation-delay: 1s;
 }

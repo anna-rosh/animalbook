@@ -29,14 +29,6 @@ export default function(state = {}, action) {
         };
     }
 
-    if (action.type === "UPDATE_QUESTION_COUNT") {
-        state = {
-            ...state,
-            questionCount: action.questionCount
-        };
-    }
-    
-
     if (action.type === "UPDATE_USER_SCORE") {
         console.log('hello!');
 

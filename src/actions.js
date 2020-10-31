@@ -41,21 +41,6 @@ export async function getQuizQuestion() {
     };
 }
 
-export function updateQuestionCount(currVal) {
-    if (currVal < 5) {
-        return {
-            type: "UPDATE_QUESTION_COUNT",
-            questionCount: currVal += 1
-        };
-    } else {
-        return {
-            type: "UPDATE_QUESTION_COUNT",
-            questionCount: 0,
-        };
-    }
-
-}
-
 export function updateUserScore(result) {
     return {
         type: "UPDATE_USER_SCORE",

@@ -9,7 +9,6 @@ import { clearState } from './actions';
 export default function Quiz() {
     const dispatch = useDispatch();
     const userScore = useSelector((state) => state && state.userScore);
-    const questionCount = useSelector((state) => state && state.questionCount);
 
     useEffect(() => {
         return () => {
@@ -21,7 +20,7 @@ export default function Quiz() {
         <section className="quiz-component-container">
             <ScoreTracker />
             <Question />
-            {userScore && userScore.length === 5 && questionCount === 0 && <QuizEnd />}
+            {userScore && userScore.length === 5 && <QuizEnd />}
         </section>
     );
 }
