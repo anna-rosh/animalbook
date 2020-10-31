@@ -10,7 +10,6 @@ export default function Question() {
     const questionCount = useSelector((state) => state && state.questionCount);
 
     useEffect(() => {
-        console.log('Question component mounted!');
         dispatch(getQuizQuestion());
         dispatch(updateQuestionCount(0));
 

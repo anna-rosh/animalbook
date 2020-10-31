@@ -30,8 +30,9 @@ module.exports.getRandomAnimal = () => {
 
 // used in quiz
 module.exports.getRandomAudios = (animalId) => {
+    // get to random sound-urls which different than the correct answer
     return db.query(
-        `SELECT term_read FROM animals
+        `SELECT id, term_read FROM animals
         WHERE id <> $1
         ORDER BY RANDOM()
         LIMIT 2`,

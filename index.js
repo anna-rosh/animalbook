@@ -72,6 +72,7 @@ app.get('/question', async (req, res) => {
     let question, audios;
 
     try {
+        // getting info about the question-animal (id, img, term_read, sound)
         const { rows } = await db.getRandomAnimal();
         question = rows[0];
 
@@ -80,24 +81,30 @@ app.get('/question', async (req, res) => {
     }
 
     try {
+        // getting two answer options (id, term_read)
         const { rows:resp } = await db.getRandomAudios(question.id);
         audios = resp;
+        console.log("AUDIOS: ", audios);
 
     } catch (err) {
         console.log('err im getRandomAudios: ', err);
     }
 
-    // create an arr only with audio files 
-    const questions = [];
-    audios.map(audio => questions.push(audio.term_read));
-    questions.push(question.term_read);
+    // create an arr of {id: , term_read} - answer options
+    const answerOptions = [];
+    audios.map(audio => answerOptions.push(audio));
 
-    const shuffledQuestions = alg.shuffleArr(questions);
+    let { id, term_read } = question;
+    let rightAnswer = { id, term_read };
+    answerOptions.push(rightAnswer);
+
+    console.log("Answers:", answerOptions);
+
+    const shuffledAnswerOptions = alg.shuffleArr(answerOptions);
 
     res.json({ 
         question, 
-        answers: shuffledQuestions,
-        correctAnswer: question.term_read
+        answers: shuffledAnswerOptions
     });
 
 });
