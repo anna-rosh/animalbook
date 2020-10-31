@@ -106,6 +106,22 @@ main {
     bottom: 0;
 }
 
+.info-container h4 {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.info-container .features-container {
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    grid-auto-flow: row;
+}
+
+.info-container h4 span {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 @keyframes slideIn {
   0% { transform: translateX(100%); opacity: 0; }
   100%   { transform: translateX(0); opacity: 1; }
