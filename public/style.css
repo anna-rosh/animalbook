@@ -19,7 +19,6 @@ main {
 /* APP HEADER ************************* APP HEADER **************************** APP HEADER */
 .app-header {
     height: 70px;
-    padding: 0 2%;
     border-bottom: 2px solid black;
     display: flex;
     justify-content: space-between;
@@ -618,7 +617,6 @@ main {
 
 
 /* KEYFRAMES ANIMATIONS **************** KEYFRAMES ANIMATIONS **************** KEYFRAMES ANIMATIONS */
-
 @keyframes fadein {
   0% { opacity: 0 }
   100%   { opacity: 1}
@@ -627,4 +625,24 @@ main {
 @keyframes slide { 
     0% {transform: translateX(-400px) translateY(200px) scale(5) rotate(360deg);}
     100% {transform: translateX(0) translateY(0) scale(1);}
+}
+
+
+/* MEDIA QUERIES ***************** MEDIA QUERIES **************** MEDIA QUERIES ************** MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+
+    /* HOME COMPONENT ************ HOME COMPONENT ***************** HOME COMPONENT */
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+
+    /* LEARNING CARDS *********** LEARNING CARDS ************* LEARNING CARDS */
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px 10px;
+    }
+
 }

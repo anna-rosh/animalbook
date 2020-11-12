@@ -10,8 +10,8 @@ export default function App() {
 
     return (
         <BrowserRouter>
-            <Header />
             <section className="app-container">
+                <Header />
                 <Route exact path="/" render={() => <HomeComponent />} />
                 <Route exact path="/cards" render={() => <Cards />} />
                 <Route exact path="/quiz" render={() => <Quiz />} />
