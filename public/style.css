@@ -19,6 +19,7 @@ main {
 /* APP HEADER ************************* APP HEADER **************************** APP HEADER */
 .app-header {
     height: 70px;
+    padding: 0 2%;
     border-bottom: 2px solid black;
     display: flex;
     justify-content: space-between;
