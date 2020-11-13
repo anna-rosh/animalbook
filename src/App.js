@@ -16,7 +16,7 @@ export default function App() {
                 <Route exact path="/cards" render={() => <Cards />} />
                 <Route exact path="/quiz" render={() => <Quiz />} />
                 <Route exact path="/memory" render={() => <Memory />} />
-                <Redirect from="*" to="/" />
+                {/* <Redirect from="*" to="/" /> */}
             </section>
         </BrowserRouter>
     );
