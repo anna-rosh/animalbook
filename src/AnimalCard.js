@@ -15,6 +15,8 @@ export default function AnimalCard() {
     }
 
     return (
+        <>
+        <div className="mobile-overlay"></div>
         <section className="animal-card-container">
             {/* check if the next id is less than zero. if so don't display navigation btn */}
             {(clickedAnimal.id - 1) > 0 
@@ -47,5 +49,7 @@ export default function AnimalCard() {
                 : (<div className="chevron-placeholder"></div>)
             }  
         </section>
+        </>
+        
     );
 }
