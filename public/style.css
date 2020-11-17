@@ -688,4 +688,14 @@ main {
         flex-direction: column;
         width: auto;
     }
+
+    /* MEMORY *****************+ MEMORY **************** MEMORY */
+    .memory-container {
+        flex-direction: column;
+    }
+
+    .memory-cards-container:first-child {
+        margin-bottom: 50px;
+        margin-right: 0;
+    }
 }
