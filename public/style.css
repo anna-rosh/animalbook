@@ -629,7 +629,12 @@ main {
 
 
 /* MEDIA QUERIES ***************** MEDIA QUERIES **************** MEDIA QUERIES ************** MEDIA QUERIES */
-@media screen and (max-width: 1024px) {
+/* IPADS ****************** IPADS **************** IPADS */
+@media only screen 
+    and (max-device-width: 1024px)
+    and (min-device-width: 768px)
+    and (orientation: portrait)
+    and (-webkit-min-device-pixel-ratio: 2) {
 
     /* HOME COMPONENT ************ HOME COMPONENT ***************** HOME COMPONENT */
     .home-container {
@@ -667,5 +672,20 @@ main {
         height: 40vh;
     }
 
+    /* QUIZ ***************** QUIZ ************** QUIZ ********** QUIZ */
+    .quiz-component-container {
+        justify-content: center;
+    }
 
+    .question-container {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        /* background-color: #fff; */
+    }
+
+    .answers-container {
+        flex-direction: column;
+        width: auto;
+    }
 }
