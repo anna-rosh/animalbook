@@ -3,7 +3,7 @@ An interactive audio-visual educational app for kids. Kids can learn animals' na
 ### The project is online 💻
 https://animalbook-tierbuch.herokuapp.com/ <hr>
 ### To run the project:
-`node bundle-server.js` `node index.js`
+`node bundle-server.js` `node index.js`<hr>
 ### Quick look into the project
 ### Learning Cards
 ![tierbuch-karten](https://github.com/anna-rosh/animalbook/blob/master/tierbuch-karten.png)
